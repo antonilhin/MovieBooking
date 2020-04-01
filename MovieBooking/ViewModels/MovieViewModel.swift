@@ -15,7 +15,6 @@ enum HomeSection: String, CaseIterable {
     case Actors
 }
 
-
 class MovieViewModel: ObservableObject {
     
     @Published var allItems: [HomeSection:[Codable]] = [:]

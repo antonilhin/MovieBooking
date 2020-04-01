@@ -21,7 +21,6 @@ struct ActorListView: View {
     }
 }
 
-
 struct ActorListView_Previews: PreviewProvider {
     static var previews: some View {
         ActorListView(actors: [], section: .Trending)

@@ -9,6 +9,7 @@
 import UIKit
 
 class ActorCell: UICollectionViewCell {
+    
     static let reuseId: String = "ActorCell"
     var actor: Actor?{
         didSet{
@@ -27,7 +28,7 @@ class ActorCell: UICollectionViewCell {
         imageView.backgroundColor = .clear
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 10
-
+        
         return imageView
     }()
     
@@ -37,11 +38,10 @@ class ActorCell: UICollectionViewCell {
         label.textColor = .secondaryLabel
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 2
-
-
+        
         return label
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -51,13 +51,11 @@ class ActorCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-    
     private func setupCell(){
         
         self.addSubview(self.imageView)
         self.addSubview(self.titleLabel)
         
-                
         NSLayoutConstraint.activate([
             imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),

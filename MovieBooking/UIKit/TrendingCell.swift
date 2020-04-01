@@ -9,6 +9,7 @@
 import UIKit
 
 class TrendingCell: UICollectionViewCell {
+    
     static let reuseId: String = "TrendingCell"
     var trending: Trending?{
         didSet{
@@ -50,8 +51,6 @@ class TrendingCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-    
-    
     private func setupCell(){
         let gradientView = UIView(frame: CGRect(x: 0, y:  self.frame.height / 4 , width: self.frame.width, height: self.frame.height / 2) )
         gradientView.layer.cornerRadius = 20
@@ -64,7 +63,6 @@ class TrendingCell: UICollectionViewCell {
         contentView.addSubview(self.imageView)
         self.imageView.addSubview(gradientView)
         contentView.addSubview(titleLabel)
-        
         
         NSLayoutConstraint.activate([
             imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),

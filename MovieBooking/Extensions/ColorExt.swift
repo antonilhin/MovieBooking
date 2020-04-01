@@ -8,15 +8,14 @@
 
 import SwiftUI
 
-
 extension Color{
-     static let darkPurple = Color("darkPurple")
-     static let lightGray = Color("lightGray")
-     static let purpleGray = Color("purpleGray")
-     static let accent = Color("accent")
-     static let clearPurple = Color("clearPurple")
-     static let textColor = Color("textColor")
-     static let background = Color("background")
+    static let darkPurple = Color("darkPurple")
+    static let lightGray = Color("lightGray")
+    static let purpleGray = Color("purpleGray")
+    static let accent = Color("accent")
+    static let clearPurple = Color("clearPurple")
+    static let textColor = Color("textColor")
+    static let background = Color("background")
     static let barcodeBG = Color("barcodeBG")
 }
 

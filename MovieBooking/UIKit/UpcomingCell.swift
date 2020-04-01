@@ -9,6 +9,7 @@
 import UIKit
 
 class UpcomingCell: UICollectionViewCell {
+    
     static let reuseId: String = "UpcomingCell"
     var upcoming: Upcoming?{
         didSet{
@@ -50,8 +51,7 @@ class UpcomingCell: UICollectionViewCell {
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
-
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -61,27 +61,27 @@ class UpcomingCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-      private func setupCell(){
+    private func setupCell(){
         contentView.addSubview(self.imageView)
         contentView.addSubview(self.titleLabel)
         contentView.addSubview(self.releaseDateLabel)
-                                
-          NSLayoutConstraint.activate([
-              imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-              imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-              imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
-              imageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25),
-              
-              titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
-              titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-              titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
-              titleLabel.heightAnchor.constraint(equalToConstant: 30),
-
-              releaseDateLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
-              releaseDateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
-              releaseDateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-              releaseDateLabel.heightAnchor.constraint(equalToConstant: 15)
-          ])
-
-      }
+        
+        NSLayoutConstraint.activate([
+            imageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            imageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
+            imageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.25),
+            
+            titleLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
+            titleLabel.heightAnchor.constraint(equalToConstant: 30),
+            
+            releaseDateLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 10),
+            releaseDateLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
+            releaseDateLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            releaseDateLabel.heightAnchor.constraint(equalToConstant: 15)
+        ])
+        
+    }
 }

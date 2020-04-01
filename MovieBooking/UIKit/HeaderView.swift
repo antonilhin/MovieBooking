@@ -14,14 +14,14 @@ class HeaderView: UICollectionReusableView {
     var onSeeAllClicked = {}
     
     lazy var name: UILabel = {
-          let label = UILabel()
-          label.text = "Popular"
-          label.textColor = UIColor(named: "textColor")
-          label.numberOfLines = 2
+        let label = UILabel()
+        label.text = "Popular"
+        label.textColor = UIColor(named: "textColor")
+        label.numberOfLines = 2
         label.font = UIFontMetrics.default.scaledFont(for: UIFont.systemFont(ofSize: 20, weight: .bold))
-
-          return label
-      }()
+        
+        return label
+    }()
     
     lazy var seeAll: UIButton = {
         let button  = UIButton(type: .system)
@@ -31,8 +31,7 @@ class HeaderView: UICollectionReusableView {
         button.backgroundColor = .clear
         return button
     }()
-
-
+    
     lazy var HStack:UIStackView = {
         let stack = UIStackView(arrangedSubviews: [name,seeAll])
         stack.translatesAutoresizingMaskIntoConstraints = false
@@ -41,11 +40,10 @@ class HeaderView: UICollectionReusableView {
         return stack
     }()
     
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-       self.addSubview(HStack)
+        self.addSubview(HStack)
         
         NSLayoutConstraint.activate([
             HStack.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
@@ -56,7 +54,7 @@ class HeaderView: UICollectionReusableView {
     }
     
     required init?(coder: NSCoder) {
-         fatalError("Not happening...")
+        fatalError("Not happening...")
     }
     
     @objc fileprivate func seeAllMovies(){

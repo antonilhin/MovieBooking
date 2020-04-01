@@ -53,7 +53,6 @@ struct Actor: Codable, Hashable {
     static var `default`: Actor{
         .init(id: 0, name: "", bio: "", image: "")
     }
-
 }
 
 // MARK: - Popular
@@ -68,7 +67,7 @@ struct Popular: Movie {
     static var `default`: Popular{
         .init(id: 0, title: "", releaseDate: "", description: "", image: "", rating: 0, genres: [], runtime: "", studio: "")
     }
-
+    
 }
 
 // MARK: - Upcoming

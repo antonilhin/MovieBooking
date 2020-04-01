@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct ActorListRow: View {
+    
     var actor: Actor
     
     var body: some View {

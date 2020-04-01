@@ -9,6 +9,7 @@
 import SwiftUI
 
 class PopularCell: UICollectionViewCell {
+    
     static let reuseId: String = "PopularCell"
     var popular: Popular?{
         didSet{
@@ -39,7 +40,7 @@ class PopularCell: UICollectionViewCell {
         label.textColor = .secondaryLabel
         return label
     }()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupCell()
@@ -48,7 +49,6 @@ class PopularCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-    
     
     private func setupCell(){
         

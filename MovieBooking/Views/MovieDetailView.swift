@@ -9,6 +9,9 @@
 import SwiftUI
 
 struct MovieDetailView<T: Movie>: View {
+    
+    @State private var showSeats: Bool = false
+    
     var movie: T
     
     fileprivate func createTitle() -> some View {
@@ -39,7 +42,11 @@ struct MovieDetailView<T: Movie>: View {
     }
     
     fileprivate func createChooseSeatButton() -> some View {
-        return LCButton(text: "Choose seats") {}
+        return LCButton(text: "Choose seats") {
+            self.showSeats.toggle()
+        }.sheet(isPresented: self.$showSeats) {
+            SeatsChoiceView(movie: self.movie)
+        }.padding(.vertical)
     }
     
     var body: some View {

@@ -20,7 +20,7 @@ struct SingleMovieView<T: Movie>: View {
             }
         }.edgesIgnoringSafeArea(.top)
     }
-
+    
     fileprivate func createPosterImage() -> some View {
         return Image(uiImage: UIImage(named: "\(movie.image).jpg") ?? UIImage() ).resizable()
             .aspectRatio(contentMode: .fit)
