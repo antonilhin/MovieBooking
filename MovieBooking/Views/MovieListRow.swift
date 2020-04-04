@@ -7,12 +7,13 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
-struct MovieListRow<T: Movie>: View {
-    var movie: T
+struct MovieListRow: View {
+    var movie: MovieViewModel
     
     fileprivate func createImage() -> some View {
-        return Image(uiImage: UIImage(named: "\(movie.image).jpg") ?? UIImage() )
+        return KFImage(source: .network(movie.posterUrl))
             .resizable()
             .aspectRatio(contentMode: .fit).cornerRadius(20)
     }
@@ -24,13 +25,12 @@ struct MovieListRow<T: Movie>: View {
     }
     
     var body: some View {
-        
         return ZStack(alignment: .bottom) {
             createImage()
             
             VStack(alignment: .leading) {
                 createTitle()
-                LineRatingView(value: movie.rating)
+                LineRatingView(value: movie.voteAverage)
             }.frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]) , startPoint: .bottom , endPoint: .top)).cornerRadius(20)

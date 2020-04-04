@@ -10,7 +10,7 @@ import SwiftUI
 
 struct MovieCollectionView: UIViewRepresentable {
     
-    var allItems: [HomeSection:[Codable]]
+    var allItems: [HomeSection: [MovieViewModel]]
     var didSelectItem: ((_ indexPath: IndexPath)->()) = {_ in }
     var seeAllforSection: ((_ section: HomeSection)->()) = {_ in }
     
@@ -19,7 +19,6 @@ struct MovieCollectionView: UIViewRepresentable {
         collectionView.register(TrendingCell.self, forCellWithReuseIdentifier: TrendingCell.reuseId)
         collectionView.register(PopularCell.self, forCellWithReuseIdentifier: PopularCell.reuseId)
         collectionView.register(UpcomingCell.self, forCellWithReuseIdentifier: UpcomingCell.reuseId)
-        collectionView.register(ActorCell.self, forCellWithReuseIdentifier: ActorCell.reuseId)
         collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: HeaderView.reuseId)
         collectionView.backgroundColor = .clear
         
@@ -65,26 +64,26 @@ struct MovieCollectionView: UIViewRepresentable {
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
-            switch indexPath.section {
+           switch indexPath.section {
             case 0:
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCell.reuseId, for: indexPath) as? TrendingCell{
-                    cell.trending = parent.allItems[HomeSection.Trending]?[indexPath.item] as? Trending
+                    cell.movie = parent.allItems[.NowPlaying]?[indexPath.item]
                     return cell
                 }
             case 1:
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCell.reuseId, for: indexPath) as? PopularCell{
-                    cell.popular = parent.allItems[HomeSection.Popular]?[indexPath.item] as? Popular
+                    cell.movie = parent.allItems[.Popular]?[indexPath.item]
                     return cell
                 }
                 
             case 2:
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: UpcomingCell.reuseId, for: indexPath) as? UpcomingCell{
-                    cell.upcoming = parent.allItems[HomeSection.Upcoming]?[indexPath.item] as? Upcoming
+                    cell.movie = parent.allItems[.Upcoming]?[indexPath.item]
                     return cell
                 }
             default:
-                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ActorCell.reuseId, for: indexPath) as? ActorCell{
-                    cell.actor = parent.allItems[HomeSection.Actors]?[indexPath.item] as? Actor
+                if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PopularCell.reuseId, for: indexPath) as? PopularCell{
+                    cell.movie = parent.allItems[.TopRated]?[indexPath.item]
                     return cell
                 }
             }

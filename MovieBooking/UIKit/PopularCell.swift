@@ -7,18 +7,19 @@
 //
 
 import SwiftUI
+import KingfisherSwiftUI
 
 class PopularCell: UICollectionViewCell {
     
     static let reuseId: String = "PopularCell"
-    var popular: Popular?{
-        didSet{
-            if let movie = self.popular {
-                imageView.image = UIImage(named: "\(movie.image).jpg")
-                titleLabel.text = movie.title
-            }
-        }
-    }
+    var movie: MovieViewModel?{
+             didSet{
+                 if let movie = self.movie {
+                     imageView.kf.setImage(with: movie.posterUrl)
+                     titleLabel.text = movie.title
+                 }
+             }
+         }
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()

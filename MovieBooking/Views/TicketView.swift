@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct TicketView<T: Movie>: View {
+struct TicketView: View {
     
-    var ticket: Ticket<T>
+    var ticket: Ticket
     var seat = Seat.default
     
     var body: some View {
@@ -21,7 +21,7 @@ struct TicketView<T: Movie>: View {
                 .shadow(color: Color.black.opacity(0.2), radius: 10, x: 0, y: 10)
             
             DashedSeperator()
-                .stroke(Color.gray, style:  StrokeStyle(lineWidth: 1,dash: [4,8], dashPhase: 4))
+                .stroke(Color.gray, style: StrokeStyle(lineWidth: 1,dash: [4,8], dashPhase: 4))
                 .frame(height: 0.4)
                 .padding(.horizontal)
             
@@ -36,7 +36,7 @@ struct TicketView<T: Movie>: View {
 
 struct TicketView_Previews: PreviewProvider {
     static var previews: some View {
-        TicketView<Popular>(ticket: Ticket<Popular>.default)
+        TicketView(ticket: Ticket.default)
     }
 }
 

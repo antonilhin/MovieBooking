@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-struct SeatsChoiceView<T: Movie>: View {
-    var movie: T
+struct SeatsChoiceView: View {
+    var movie: MovieViewModel
     
     @State private var selectedSeats: [Seat] = []
     @State private var showBasket: Bool = false
@@ -29,7 +29,8 @@ struct SeatsChoiceView<T: Movie>: View {
                             self.showPopup = !self.validateInputs()
                         }
                     }).sheet(isPresented: self.$showBasket) {
-                         BasketView(ticket: Ticket(id: UUID(), movie: self.movie, date: self.date, hour: self.hour) , selectedSeats: self.selectedSeats)
+                        BasketView(ticket: Ticket(id: UUID(), movie: self.movie, date: self.date, hour: self.hour) , selectedSeats: self.selectedSeats
+                        )
                     }.padding()
                 }.navigationBarTitle("Choose seats", displayMode: .large)
                     .frame(maxHeight: .infinity)
@@ -52,7 +53,7 @@ struct SeatsChoiceView<T: Movie>: View {
             Text("Not allowed").font(.system(size: 20, weight: Font.Weight.semibold))
             Text("You need to select at least one seat, a date and hour in order to continue.")
                 .multilineTextAlignment(.center).frame(maxHeight: .infinity)
-            LCButton(text: "Ok") {
+            LCButton(text: "Let's do that") {
                 withAnimation {
                     self.showPopup.toggle()
                 }
@@ -67,14 +68,14 @@ struct SeatsChoiceView<T: Movie>: View {
     
     fileprivate func validateInputs() -> Bool {
         self.selectedSeats.count > 0
-            && self.date != TicketDate.default
-            && !self.hour.isEmpty
+        && self.date != TicketDate.default
+        && !self.hour.isEmpty
     }
     
 }
 
 struct ChooseSeatsView_Previews: PreviewProvider {
     static var previews: some View {
-        SeatsChoiceView(movie: Popular.default)
+        SeatsChoiceView(movie: MovieViewModel.default)
     }
 }

@@ -8,22 +8,38 @@
 
 import SwiftUI
 
-struct MovieDetailView<T: Movie>: View {
+struct MovieDetailView: View {
+    var movie: MovieViewModel
     
     @State private var showSeats: Bool = false
     
-    var movie: T
+    var body: some View {
+        
+        return VStack(alignment: .leading) {
+            createTitle()
+            LineRatingView(value: movie.voteAverage)
+            createGenreList()
+            HStack {
+                Text(self.movie.releaseDate).foregroundColor(Color.gray)
+                Spacer()
+                Text(self.movie.runtime ).foregroundColor(Color.gray)
+            }.padding(.vertical)
+            createDescription()
+            createChooseSeatButton()
+        }.padding(.horizontal).padding(.bottom, 20)
+    }
     
     fileprivate func createTitle() -> some View {
         return Text(self.movie.title)
-            .font(.system(size: 35, weight: .black, design: .rounded))
+            .font(.system(size: 35, weight : .black, design: .rounded))
             .layoutPriority(1)
             .multilineTextAlignment(.leading)
             .lineLimit(nil)
     }
     
     fileprivate func createGenreList() -> some View {
-        return ScrollView(.horizontal) {
+        
+        return ScrollView(.horizontal, showsIndicators: false) {
             HStack{
                 ForEach(self.movie.genres, id: \.self){ genre in
                     Text(genre)
@@ -32,13 +48,14 @@ struct MovieDetailView<T: Movie>: View {
                         .background(Color.lightGray)
                         .cornerRadius(10)
                         .foregroundColor(Color.gray)
+                    
                 }
             }
         }
     }
     
     fileprivate func createDescription() -> some View {
-        return Text(self.movie.description).lineLimit(nil).font(.body)
+        return Text(self.movie.overview).lineLimit(nil).font(.body)
     }
     
     fileprivate func createChooseSeatButton() -> some View {
@@ -47,30 +64,6 @@ struct MovieDetailView<T: Movie>: View {
         }.sheet(isPresented: self.$showSeats) {
             SeatsChoiceView(movie: self.movie)
         }.padding(.vertical)
-    }
-    
-    var body: some View {
-        VStack(alignment: .leading) {
-            createTitle()
-            LineRatingView(value: movie.rating)
-            createGenreList()
-            
-            HStack {
-                Text(self.movie.releaseDate).foregroundColor(Color.gray)
-                Spacer()
-                Text(self.movie.runtime).foregroundColor(Color.gray)
-            }.padding(.vertical)
-            
-            createDescription()
-            createChooseSeatButton()
-            
-        }.padding(.horizontal).padding(.bottom, 20)
-    }
-}
-
-struct MovieDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        MovieDetailView<Popular>(movie: Popular.default)
     }
 }
 

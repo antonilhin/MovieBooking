@@ -15,3 +15,4 @@ struct Seat: Identifiable {
     
     static var `default`: Seat { Seat(id: UUID(), row: 0, number: 0) }
 }
+ 

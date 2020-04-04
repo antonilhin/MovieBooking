@@ -7,19 +7,19 @@
 //
 
 import UIKit
+import KingfisherSwiftUI
 
 class UpcomingCell: UICollectionViewCell {
     
     static let reuseId: String = "UpcomingCell"
-    var upcoming: Upcoming?{
-        didSet{
-            if let upcoming = self.upcoming {
-                imageView.image = UIImage(named: "\(upcoming.image)_land.jpg")
-                titleLabel.text = upcoming.title
-                releaseDateLabel.text = upcoming.releaseDate
-            }
-        }
-    }
+     var movie: MovieViewModel?{
+             didSet{
+                 if let movie = self.movie {
+                     imageView.kf.setImage(with: movie.posterUrl)
+                     titleLabel.text = movie.title
+                 }
+             }
+         }
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()
