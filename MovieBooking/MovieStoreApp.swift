@@ -19,7 +19,6 @@ struct MovieStoreApp: View {
     
     var body: some View {
         
-        
         return NavigationView {
             
             if model.sectionMovies.isEmpty{

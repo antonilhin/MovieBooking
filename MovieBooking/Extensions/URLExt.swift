@@ -16,11 +16,9 @@ extension URL{
     static private  let apiKey = "34b106da35243b6a9bd8264787d00694"
     static private  let baseUrl = "https://api.themoviedb.org/3/movie"
     
-    
     static func movies(for section: HomeSection, page: Int) -> URL{
         URL(string: "\(baseUrl)/\(section.rawValue.replacingOccurrences(of: " ", with: "_").lowercased() )?api_key=\(apiKey)&language=en-US&page=\(page)")!
     }
-    
     
     static var topRated: URL{
         get{
@@ -28,7 +26,6 @@ extension URL{
             URL(string: "\(baseUrl)/top_rated?api_key=\(apiKey)&language=en-US&page=1")!
         }
     }
-    
     
     static var upcoming: URL{
         get{

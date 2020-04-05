@@ -25,10 +25,10 @@ struct TicketShape: Shape {
         
         path.addLine(to:  CGPoint(x: rect.size.width, y: rect.size.height - smallArcRadius))
         path.addArc(center: CGPoint(x: rect.size.width , y: rect.size.height), radius: smallArcRadius, startAngle: Angle(degrees: 270), endAngle: Angle(degrees: 180) , clockwise: true)
-            
+        
         path.addLine(to:  CGPoint(x: rect.origin.x + smallArcRadius, y: rect.size.height))
         path.addArc(center: CGPoint(x: rect.origin.x , y: rect.size.height), radius: smallArcRadius, startAngle: Angle(degrees: 360), endAngle: Angle(degrees: 270) , clockwise: true)
-             
+        
         path.closeSubpath()
         return path
     }

@@ -68,8 +68,8 @@ struct SeatsChoiceView: View {
     
     fileprivate func validateInputs() -> Bool {
         self.selectedSeats.count > 0
-        && self.date != TicketDate.default
-        && !self.hour.isEmpty
+            && self.date != TicketDate.default
+            && !self.hour.isEmpty
     }
     
 }

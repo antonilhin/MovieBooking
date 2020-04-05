@@ -9,7 +9,6 @@
 import SwiftUI
 import KingfisherSwiftUI
 
-
 struct TopTicketView: View {
     
     var ticket: Ticket
@@ -26,11 +25,11 @@ struct TopTicketView: View {
             }.frame(minWidth: 0.0, maxWidth:.infinity, alignment: .leading)
                 .padding(.top, 30)
                 .padding(.horizontal)
-        
+            
             KFImage(source: .network(ticket.movie.backdropUrl) )
                 .resizable().frame(minWidth: 0.0, maxWidth: .infinity)
                 .scaledToFit()
-                
+            
             HStack{
                 TicketDetailView(detail1: "SCREEN", detail2: "18", detail3: "PRICE", detail4: "$5.68")
                 TicketDetailView(detail1: "ROW", detail2: "\(seat.row)", detail3: "DATE", detail4: "\(ticket.date.day)/\(ticket.date.month)/\(ticket.date.year)")

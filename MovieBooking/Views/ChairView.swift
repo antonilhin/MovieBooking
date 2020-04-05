@@ -13,6 +13,7 @@ struct ChairView: View {
     var width: CGFloat = 50
     var accentColor: Color = .blue
     var seat = Seat.default
+    
     @State var isSelected = false
     var isSelectable = true
     var onSelect: ((Seat)->()) = {_ in }

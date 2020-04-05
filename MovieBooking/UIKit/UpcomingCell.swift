@@ -12,14 +12,14 @@ import KingfisherSwiftUI
 class UpcomingCell: UICollectionViewCell {
     
     static let reuseId: String = "UpcomingCell"
-     var movie: MovieViewModel?{
-             didSet{
-                 if let movie = self.movie {
-                     imageView.kf.setImage(with: movie.posterUrl)
-                     titleLabel.text = movie.title
-                 }
-             }
-         }
+    var movie: MovieViewModel?{
+        didSet{
+            if let movie = self.movie {
+                imageView.kf.setImage(with: movie.posterUrl)
+                titleLabel.text = movie.title
+            }
+        }
+    }
     
     lazy var imageView: UIImageView = {
         let imageView = UIImageView()

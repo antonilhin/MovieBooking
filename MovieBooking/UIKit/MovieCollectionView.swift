@@ -64,7 +64,7 @@ struct MovieCollectionView: UIViewRepresentable {
         
         func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             
-           switch indexPath.section {
+            switch indexPath.section {
             case 0:
                 if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrendingCell.reuseId, for: indexPath) as? TrendingCell{
                     cell.movie = parent.allItems[.NowPlaying]?[indexPath.item]

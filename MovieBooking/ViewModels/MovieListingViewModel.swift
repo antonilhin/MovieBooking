@@ -59,7 +59,7 @@ class MovieListViewModel: ObservableObject {
         webService.getMovieDetailPublisher(for: id)
             .receive(on: DispatchQueue.main)
             .sink(receiveCompletion: { status in
-               switch status {
+                switch status {
                 case .finished:
                     break
                 case .failure(let error):

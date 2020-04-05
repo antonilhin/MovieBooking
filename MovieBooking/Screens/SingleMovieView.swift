@@ -17,21 +17,19 @@ struct SingleMovieView: View {
     
     var body: some View {
         ScrollView(showsIndicators: false) {
-                    VStack(alignment: .leading) {
-                        createPosterImage()
-                        MovieDetailView(movie: self.model.movie)
-                    }
-                }.edgesIgnoringSafeArea(.top)
-                .onAppear {
-                    self.model.getMovieDetail(id: self.movieId)
-                }
+            VStack(alignment: .leading) {
+                createPosterImage()
+                MovieDetailView(movie: self.model.movie)
+            }
+        }.edgesIgnoringSafeArea(.top)
+            .onAppear {
+                self.model.getMovieDetail(id: self.movieId)
         }
+    }
     
-    
-    
-       fileprivate func createPosterImage() -> some View {
+    fileprivate func createPosterImage() -> some View {
         return KFImage(source: .network(model.movie.posterUrl)).resizable()
-           .aspectRatio(contentMode: .fit)
-       }
+            .aspectRatio(contentMode: .fit)
+    }
 }
 

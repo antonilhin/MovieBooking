@@ -35,7 +35,6 @@ struct MovieListRow: View {
                 .padding()
                 .background(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]) , startPoint: .bottom , endPoint: .top)).cornerRadius(20)
                 .shadow(radius: 10)
-            
         }.padding(.vertical)
     }
 }

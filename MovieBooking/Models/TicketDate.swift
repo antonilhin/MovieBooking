@@ -9,6 +9,7 @@
 import Foundation
 
 struct TicketDate: Equatable {
+    
     var day: String
     var month: String
     var year: String

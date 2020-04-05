@@ -12,7 +12,7 @@ import KingfisherSwiftUI
 class TrendingCell: UICollectionViewCell {
     
     static let reuseId: String = "TrendingCell"
-   var movie: MovieViewModel?{
+    var movie: MovieViewModel?{
         didSet{
             if let movie = self.movie {
                 // This line use kingFisher to download, set the image to the image view and caching it at the same time
@@ -77,7 +77,6 @@ class TrendingCell: UICollectionViewCell {
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: 50)
         ])
-        
     }
     
 }

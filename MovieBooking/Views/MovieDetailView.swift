@@ -48,7 +48,6 @@ struct MovieDetailView: View {
                         .background(Color.lightGray)
                         .cornerRadius(10)
                         .foregroundColor(Color.gray)
-                    
                 }
             }
         }

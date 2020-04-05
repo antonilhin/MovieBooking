@@ -14,7 +14,6 @@ struct TMDBResult: Codable {
     let results:[Movie]
 }
 
-
 struct Genre: Codable{
     let id:Int
     let name:String
@@ -23,7 +22,6 @@ struct Genre: Codable{
 struct ProductionCompany: Codable {
     let name: String
 }
-
 
 struct Movie: Codable {
     
@@ -43,9 +41,7 @@ struct Movie: Codable {
     let budget: Int?
     let productionCompanies: [ProductionCompany]?
     
-    
     static var `default`: Movie {
         Movie(id: 0, title: "", releaseDate: "", overview: "", popularity: 0, genres: [], voteAverage: 0, originalLanguage: "", posterPath: "", backdropPath: "", voteCount: 0, status: "", runtime: 0, revenue: 0, budget: 0, productionCompanies: [])
     }
-    
 }

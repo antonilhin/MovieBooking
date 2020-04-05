@@ -34,7 +34,6 @@ struct MovieViewModel: Identifiable {
     private let backdropSize = "w780"
     private let posterSize = "w342"
     
-    
     static  var `default` : MovieViewModel {
         get{
             MovieViewModel(movie: Movie(id: 0, title: "", releaseDate: "", overview: "", popularity: 0, genres: [], voteAverage: 0, originalLanguage: "", posterPath: "", backdropPath: "", voteCount: 0, status: "", runtime: 0, revenue: 0, budget: 0, productionCompanies: []) )
@@ -59,7 +58,6 @@ struct MovieViewModel: Identifiable {
         }
     }
     
-    
     static private func posterImageUrl(with path: String, baseUrl: String, size: String) -> URL {
         if let url = URL(string: "\(baseUrl)\(size)\(path)"){
             return url
@@ -76,16 +74,13 @@ struct MovieViewModel: Identifiable {
         return URL(string: "https://via.placeholder.com/150/0000FF/808080?Text=No&image&available")!
     }
     
-    
     static private func productionCompany(movie: Movie) -> String {
         
         if let prodCompanies = movie.productionCompanies, !prodCompanies.isEmpty {
             return prodCompanies.first?.name ?? "N/A"
         }
-        
         return "N/A"
     }
-    
     
     static private func formatTime(from runtime: Int)->String{
         if runtime == 0 {
